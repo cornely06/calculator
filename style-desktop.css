@@ -5,12 +5,18 @@
   margin: 0;
   padding: 0;
 }
+#calculator {
+    display: flex;
+}
 #digits {
     display: flex;
     flex-wrap: wrap-reverse;
-    width: 250px;
+    width: 225px;
 }
-.num {
+#operators {
+    width: 75px;
+}
+button {
     width: 75px;
     height: 60px;
     font-size: 25px;
