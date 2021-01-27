@@ -1,12 +1,16 @@
-function addition(a, b) {
+function add(a, b) {
     return a + b;
 }
-function subtraction(a, b) {
+function subtract(a, b) {
     return a - b;
 }
-function multiplication(a, b) {
+function multiply(a, b) {
     return a * b;
 }
-function division(a, b) {
+function divide(a, b) {
     return a / b;
 }
+function operate(operator, a, b) {
+    return operator(a, b);
+}
+console.log(operate(add, 5, 2));
