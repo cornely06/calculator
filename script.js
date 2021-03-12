@@ -35,3 +35,22 @@ numbers.forEach(item => item.addEventListener("click", function() {
 document.querySelector("#clear").addEventListener("click", function() {
     display.textContent = "";
 })
+
+let operators = document.querySelectorAll(".math");
+let a;
+let b;
+let operator;
+operators.forEach(item => item.addEventListener("click", function() {
+    a = Number(display.textContent);
+    operator = this.getAttribute("id");
+    console.log(operator);
+    display.textContent = "";
+}))
+let equals = document.querySelector("#equals");
+equals.addEventListener("click", function() {
+    b = Number(display.textContent);
+    let result = operate(window[operator], a, b);
+    display.textContent = result;
+})
+// on click it saves current display
+//have equal save 2nd display and apply function from operator button on them
