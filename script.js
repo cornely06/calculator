@@ -27,11 +27,11 @@ let numPad = function(){
     }
 }
 numPad();
-let numText = document.querySelector("#numTest");
+let numbers = document.querySelectorAll(".num");
 let display = document.querySelector("#output");
-numText.addEventListener("click", function() {
-    display.textContent += numText.textContent;
-})
+numbers.forEach(item => item.addEventListener("click", function() {
+    display.textContent += item.textContent;
+}))
 document.querySelector("#clear").addEventListener("click", function() {
     display.textContent = "";
 })
