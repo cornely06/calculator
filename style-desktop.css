@@ -5,6 +5,19 @@
   margin: 0;
   padding: 0;
 }
+#display {
+    width: 300px;
+    height: 75px;
+    background-color: lightgray;
+    border: 2px solid black;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+#display > p {
+    margin-right: 10px;
+    font-size: 25px;
+}
 #calculator {
     display: flex;
 }
