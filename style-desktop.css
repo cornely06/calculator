@@ -28,6 +28,10 @@
 }
 #operators {
     width: 75px;
+    height: 240px;
+}
+.operators {
+    height: 48px;
 }
 button {
     width: 75px;
