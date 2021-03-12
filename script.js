@@ -27,3 +27,11 @@ let numPad = function(){
     }
 }
 numPad();
+let numText = document.querySelector("#numTest");
+let display = document.querySelector("#output");
+numText.addEventListener("click", function() {
+    display.textContent += numText.textContent;
+})
+document.querySelector("#clear").addEventListener("click", function() {
+    display.textContent = "";
+})
