@@ -29,7 +29,12 @@ let numPad = function(){
 numPad();
 let numbers = document.querySelectorAll(".num");
 let display = document.querySelector("#output");
+let tempDisplay;
 numbers.forEach(item => item.addEventListener("click", function() {
+    if (tempDisplay !== undefined) {
+        display.textContent = "";
+        tempDisplay = undefined;
+    }
     display.textContent += item.textContent;
 }))
 document.querySelector("#clear").addEventListener("click", function() {
@@ -42,9 +47,9 @@ let b;
 let operator;
 operators.forEach(item => item.addEventListener("click", function() {
     a = Number(display.textContent);
+    tempDisplay = a;
+    display.textContent = a;
     operator = this.getAttribute("id");
-    console.log(operator);
-    display.textContent = "";
 }))
 let equals = document.querySelector("#equals");
 equals.addEventListener("click", function() {
