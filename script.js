@@ -10,8 +10,16 @@ function multiply(a, b) {
 function divide(a, b) {
     return a / b;
 }
+function countDecimals(value) {
+    if ((value % 1) != 0) {
+        return value.toString().split(".")[1].length;
+    }
+    return 0;
+}
 function operate(operator, a, b) {
-    return operator(Number(a), Number(b));
+    let deciA = countDecimals(a);
+    let deciB = countDecimals(b);
+    return parseFloat(operator(Number(a), Number(b)).toFixed(deciA + deciB));
 }
 
 let numPad = function(){
