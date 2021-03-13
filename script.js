@@ -69,7 +69,9 @@ document.querySelectorAll(".math").forEach(item => item.addEventListener("click"
     currentOpperator = this.getAttribute("id");
 }))
 document.querySelector("#equals").addEventListener("click", function() {
-    if (currentOpperator !== null) {
+    if (currentOpperator === "divide" && display.textContent == 0) {
+        display.textContent = "Error. Can't divide by zero, bud.";
+    } else if (currentOpperator !== null) {
         firstNum = operate(window[currentOpperator], firstNum, display.textContent);
         display.textContent = firstNum;
     }
