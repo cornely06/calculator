@@ -52,10 +52,15 @@ operators.forEach(item => item.addEventListener("click", function() {
     operator = this.getAttribute("id");
 }))
 let equals = document.querySelector("#equals");
+let countDecimals = function(value) {
+    if ((value % 1) != 0) {
+        return value.toString().split(".")[1].length;
+    }
+}
 equals.addEventListener("click", function() {
     b = Number(display.textContent);
     let result = operate(window[operator], a, b);
     display.textContent = result;
 })
 // on click it saves current display
-//have equal save 2nd display and apply function from operator button on them
+// have equal save 2nd display and apply function from operator button on them
