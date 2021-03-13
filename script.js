@@ -56,10 +56,13 @@ let countDecimals = function(value) {
     if ((value % 1) != 0) {
         return value.toString().split(".")[1].length;
     }
+    return 0;
 }
 equals.addEventListener("click", function() {
     b = Number(display.textContent);
-    let result = operate(window[operator], a, b);
+    let deciA = countDecimals(a);
+    let deciB = countDecimals(b);
+    let result = Number(operate(window[operator], a, b).toFixed(deciA + deciB));
     display.textContent = result;
 })
 // on click it saves current display
