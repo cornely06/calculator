@@ -11,7 +11,7 @@ function divide(a, b) {
     return a / b;
 }
 function operate(operator, a, b) {
-    return operator(a, b);
+    return operator(Number(a), Number(b));
 }
 
 let numPad = function(){
@@ -28,12 +28,15 @@ let numPad = function(){
 numPad();
 
 let firstNum = "";
-let secondNum = "";
+let tracker = 0;
+let result = 0;
 let currentOpperator = null;
 let display = document.querySelector("#output");
 document.querySelectorAll(".num").forEach(item => item.addEventListener("click", function() {
-    if (currentOpperator != null) {
+    if ((currentOpperator != null && tracker !== 0) || result !== 0) {
         display.textContent = "";
+        tracker = 0;
+        result = 0;
     }
     display.textContent += this.textContent;
 }))
@@ -45,18 +48,27 @@ document.querySelector("#decimal").addEventListener("click", function() {
 document.querySelector("#clear").addEventListener("click", function() {
     display.textContent = "";
     firstNum = "";
-    secondNum = "";
+    tracker = 0;
     currentOpperator = null;
 })
 document.querySelectorAll(".math").forEach(item => item.addEventListener("click", function() {
     if (currentOpperator !== null) {
-        firstNum = operate(window[currentOpperator], Number(firstNum), Number(display.textContent));
+        firstNum = operate(window[currentOpperator], firstNum, display.textContent);
         display.textContent = firstNum;
     }
     firstNum = display.textContent;
+    tracker = 1;
     currentOpperator = this.getAttribute("id");
-    console.log(currentOpperator);
 }))
+document.querySelector("#equals").addEventListener("click", function() {
+    if (currentOpperator !== null) {
+        firstNum = operate(window[currentOpperator], firstNum, display.textContent);
+        display.textContent = firstNum;
+    }
+    firstNum = "";
+    result = 1;
+    currentOpperator = null;
+})
 
 /*
 let numbers = document.querySelectorAll(".num");
