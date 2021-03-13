@@ -13,7 +13,6 @@ function divide(a, b) {
 function operate(operator, a, b) {
     return operator(a, b);
 }
-console.log(operate(add, 5, 2));
 
 let numPad = function(){
     let digits = document.querySelector("#digits");
@@ -27,6 +26,39 @@ let numPad = function(){
     }
 }
 numPad();
+
+let firstNum = "";
+let secondNum = "";
+let currentOpperator = null;
+let display = document.querySelector("#output");
+document.querySelectorAll(".num").forEach(item => item.addEventListener("click", function() {
+    if (currentOpperator != null) {
+        display.textContent = "";
+    }
+    display.textContent += this.textContent;
+}))
+document.querySelector("#decimal").addEventListener("click", function() {
+    if (display.textContent.indexOf(".") === -1) {
+        display.textContent += this.textContent;
+    }
+})
+document.querySelector("#clear").addEventListener("click", function() {
+    display.textContent = "";
+    firstNum = "";
+    secondNum = "";
+    currentOpperator = null;
+})
+document.querySelectorAll(".math").forEach(item => item.addEventListener("click", function() {
+    if (currentOpperator !== null) {
+        firstNum = operate(window[currentOpperator], Number(firstNum), Number(display.textContent));
+        display.textContent = firstNum;
+    }
+    firstNum = display.textContent;
+    currentOpperator = this.getAttribute("id");
+    console.log(currentOpperator);
+}))
+
+/*
 let numbers = document.querySelectorAll(".num");
 let display = document.querySelector("#output");
 let tempDisplay;
@@ -46,6 +78,10 @@ let a;
 let b;
 let operator;
 operators.forEach(item => item.addEventListener("click", function() {
+    if (a != undefined && operator != undefined) {
+        a = Number(operate(window[operator], a, display.textContent));
+        return;
+    }
     a = Number(display.textContent);
     tempDisplay = a;
     display.textContent = a;
@@ -69,5 +105,4 @@ equals.addEventListener("click", function() {
     operator = undefined;
     display.textContent = result;
 })
-// on click it saves current display
-// have equal save 2nd display and apply function from operator button on them
+*/
