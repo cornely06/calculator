@@ -59,10 +59,14 @@ let countDecimals = function(value) {
     return 0;
 }
 equals.addEventListener("click", function() {
+    if (operator === undefined) {
+        return;
+    }
     b = Number(display.textContent);
     let deciA = countDecimals(a);
     let deciB = countDecimals(b);
     let result = Number(operate(window[operator], a, b).toFixed(deciA + deciB));
+    operator = undefined;
     display.textContent = result;
 })
 // on click it saves current display
