@@ -5,8 +5,10 @@
   margin: 0;
   padding: 0;
 }
-#top-row {
+body {
+    background-color: lightblue;
     display: flex;
+    justify-content: center;
 }
 #display {
     width: 225px;
@@ -19,10 +21,11 @@
 }
 #display > p {
     margin-right: 10px;
-    font-size: 25px;
+    font-size: 30px;
 }
 #calculator {
     display: flex;
+    margin-top: 5vw;
 }
 #digits {
     display: flex;
@@ -36,9 +39,16 @@
 .operators {
     height: 50px;
 }
+.math {
+    color: darkgreen;
+}
+#backspace {
+    color: red;
+}
 button {
     width: 75px;
     font-size: 25px;
+    background-color: lightgoldenrodyellow;
 }
 #digits > button {
     height: 60px;
