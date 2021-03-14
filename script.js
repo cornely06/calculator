@@ -79,6 +79,9 @@ document.querySelector("#equals").addEventListener("click", function() {
     result = 1;
     currentOpperator = null;
 })
+document.querySelector("#backspace").addEventListener("click", function() {
+    display.textContent = display.textContent.slice(0, -1);
+})
 
 /*
 let numbers = document.querySelectorAll(".num");
