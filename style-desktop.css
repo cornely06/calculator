@@ -49,6 +49,7 @@ button {
     width: 75px;
     font-size: 25px;
     background-color: lightgoldenrodyellow;
+    outline: black;
 }
 #digits > button {
     height: 60px;
