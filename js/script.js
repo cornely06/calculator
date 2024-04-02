@@ -23,19 +23,15 @@ function operate(firstNumber, secondNumber, operator) {
   let result;
   switch (operator) {
     case "+":
-      console.log(add(Number(firstNumber), Number(secondNumber)));
       result = add(Number(firstNumber), Number(secondNumber));
       break;
     case "-":
-      console.log(subtract(firstNumber, secondNumber));
       result = subtract(firstNumber, secondNumber);
       break;
     case "*":
-      console.log(multiply(firstNumber, secondNumber));
       result = multiply(firstNumber, secondNumber);
       break;
     case "/":
-      console.log(divide(firstNumber, secondNumber));
       result = divide(firstNumber, secondNumber);
       break;
   }
@@ -84,7 +80,6 @@ function updateOperator() {
   firstNumber = display.textContent;
   operator = this.textContent;
   display.textContent = "";
-  console.log(firstNumber, operator);
 }
 
 function printResult() {
