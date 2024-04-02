@@ -14,9 +14,9 @@ function divide(a, b) {
   return a / b;
 }
 
-let firstNumber;
-let secondNumber;
-let operator;
+let firstNumber = "";
+let secondNumber = "";
+let operator = "";
 let display = document.querySelector(".display");
 
 function operate(firstNumber, secondNumber, operator) {
@@ -37,7 +37,10 @@ function operate(firstNumber, secondNumber, operator) {
 }
 
 function clear() {
-  display.textContent = "";
+  display.textContent = "0";
+  firstNumber = "";
+  secondNumber = "";
+  operator = "";
 }
 
 function init() {
@@ -53,8 +56,11 @@ function init() {
   });
 }
 
-function numberDisplay() {
+function numberDisplay(e) {
   console.log(this.textContent);
+  if (display.textContent === "0") {
+    display.textContent = "";
+  }
   display.textContent += this.textContent;
 }
 
