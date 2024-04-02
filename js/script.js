@@ -43,21 +43,35 @@ function clear() {
   operator = "";
 }
 
+function updateVariables() {
+  firstNumber = display.textContent;
+  operator = this.textContent;
+  display.textContent = "";
+  console.log(firstNumber, operator);
+}
+
 function init() {
   let clearButton = document.querySelector("#clear");
   clearButton.addEventListener("click", clear);
 
   let buttons = document.querySelectorAll(".button");
-  console.log(buttons);
   buttons.forEach((number) => {
     if (!isNaN(number.textContent)) {
       number.addEventListener("click", numberDisplay);
     }
   });
+
+  let addButton = document.querySelector("#add");
+  addButton.addEventListener("click", updateVariables);
+  let subtractButton = document.querySelector("#subtract");
+  subtractButton.addEventListener("click", updateVariables);
+  let multiplyButton = document.querySelector("#multiply");
+  multiplyButton.addEventListener("click", updateVariables);
+  let divideButton = document.querySelector("#divide");
+  divideButton.addEventListener("click", updateVariables);
 }
 
-function numberDisplay(e) {
-  console.log(this.textContent);
+function numberDisplay() {
   if (display.textContent === "0") {
     display.textContent = "";
   }
