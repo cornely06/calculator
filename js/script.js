@@ -73,7 +73,7 @@ function init() {
 function updateDisplay() {
   if (result) {
     result = false;
-    clear();
+    display.textContent = 0;
   }
   if (display.textContent === "0") {
     display.textContent = "";
