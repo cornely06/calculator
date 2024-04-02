@@ -58,14 +58,8 @@ function init() {
     }
   });
 
-  let addButton = document.querySelector("#add");
-  addButton.addEventListener("click", updateOperator);
-  let subtractButton = document.querySelector("#subtract");
-  subtractButton.addEventListener("click", updateOperator);
-  let multiplyButton = document.querySelector("#multiply");
-  multiplyButton.addEventListener("click", updateOperator);
-  let divideButton = document.querySelector("#divide");
-  divideButton.addEventListener("click", updateOperator);
+  let operators = document.querySelector(".operators").childNodes;
+  operators.forEach((num) => num.addEventListener("click", updateOperator));
 
   let equalsButton = document.querySelector("#equals");
   equalsButton.addEventListener("click", printResult);
