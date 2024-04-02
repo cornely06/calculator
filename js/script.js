@@ -17,6 +17,7 @@ function divide(a, b) {
 let firstNumber;
 let secondNumber;
 let operator;
+let display = document.querySelector(".display");
 
 function operate(firstNumber, secondNumber, operator) {
   switch (operator) {
@@ -34,3 +35,27 @@ function operate(firstNumber, secondNumber, operator) {
       break;
   }
 }
+
+function clear() {
+  display.textContent = "";
+}
+
+function init() {
+  let clearButton = document.querySelector("#clear");
+  clearButton.addEventListener("click", clear);
+
+  let buttons = document.querySelectorAll(".button");
+  console.log(buttons);
+  buttons.forEach((number) => {
+    if (!isNaN(number.textContent)) {
+      number.addEventListener("click", numberDisplay);
+    }
+  });
+}
+
+function numberDisplay() {
+  console.log(this.textContent);
+  display.textContent += this.textContent;
+}
+
+init();
