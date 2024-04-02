@@ -18,6 +18,7 @@ let firstNumber = "";
 let secondNumber = "";
 let operator = "";
 let display = document.querySelector(".display");
+let result = false;
 
 function operate(firstNumber, secondNumber, operator) {
   let result;
@@ -70,6 +71,10 @@ function init() {
 }
 
 function updateDisplay() {
+  if (result) {
+    result = false;
+    clear();
+  }
   if (display.textContent === "0") {
     display.textContent = "";
   }
@@ -88,6 +93,7 @@ function printResult() {
   }
   secondNumber = display.textContent;
   display.textContent = operate(firstNumber, secondNumber, operator);
+  result = true;
 }
 
 init();
