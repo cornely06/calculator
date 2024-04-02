@@ -3,6 +3,7 @@
 *::after {
   margin: 0px;
   padding: 0px;
+  box-sizing: border-box;
 }
 
 .main {
@@ -13,14 +14,13 @@
 }
 
 .calculator {
-  width: 300px;
-  height: 350px;
   border: 2px solid black;
 }
 
 .display {
   height: 50px;
   background-color: white;
+  border-bottom: 1px solid black;
   padding-right: 10px;
   display: flex;
   justify-content: flex-end;
