@@ -82,6 +82,12 @@ function updateDisplay() {
 }
 
 function updateOperator() {
+  if (firstNumber && operator) {
+    secondNumber = display.textContent;
+    display.textContent = operate(firstNumber, secondNumber, operator);
+    secondNumber = "";
+  }
+
   firstNumber = display.textContent;
   operator = this.textContent;
   midOperation = true;
