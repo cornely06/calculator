@@ -52,8 +52,8 @@ function checkDecimals(number) {
   return number;
 }
 
-function checkDisplay() {
-  if (display.textContent.split("").length > 21) {
+function bigNum() {
+  if (display.textContent.split("").length > 18) {
     display.textContent = "BIG NUM";
     bigNumber = true;
   }
@@ -120,6 +120,18 @@ function init() {
 }
 
 function updateDisplay() {
+  checkDisplay();
+  display.textContent += this.textContent;
+  bigNum();
+}
+
+function updateDisplayKeys(keyString) {
+  checkDisplay();
+  display.textContent += keyString;
+  bigNum();
+}
+
+function checkDisplay() {
   if (bigNumber) {
     clear();
   }
@@ -135,11 +147,19 @@ function updateDisplay() {
   if (display.textContent === "0") {
     display.textContent = "";
   }
-  display.textContent += this.textContent;
-  checkDisplay();
 }
 
 function updateOperator() {
+  checkUpdateOperator();
+  operator = this.textContent;
+}
+
+function updateOperatorKeys(keyString) {
+  checkUpdateOperator();
+  operator = keyString;
+}
+
+function checkUpdateOperator() {
   if (bigNumber) {
     clear();
     return;
@@ -151,7 +171,6 @@ function updateOperator() {
   }
 
   firstNumber = display.textContent;
-  operator = this.textContent;
   midOperation = true;
 }
 
@@ -171,3 +190,36 @@ function printResult() {
 }
 
 init();
+
+window.addEventListener("keydown", (e) => {
+  switch (e.key) {
+    case "Backspace":
+      backspace();
+      break;
+    case "=":
+    case "Enter":
+      printResult();
+      break;
+    case "+":
+    case "-":
+    case "*":
+    case "/":
+      updateOperatorKeys(e.key);
+      break;
+    case ".":
+      addDecimal();
+      break;
+    case "0":
+    case "1":
+    case "2":
+    case "3":
+    case "4":
+    case "5":
+    case "6":
+    case "7":
+    case "8":
+    case "9":
+      updateDisplayKeys(e.key);
+      break;
+  }
+});
