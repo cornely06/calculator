@@ -4,37 +4,52 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>TOP Project: Calculator</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Butterfly+Kids&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="css/style.css" />
   </head>
   <body>
     <div class="main">
-      <div class="calculator">
-        <div class="display">0</div>
-        <div class="buttons">
-          <div class="numbers">
-            <button class="button" id="clear">C</button>
-            <button class="button">0</button>
-            <button class="button" id="decimal">.</button>
-            <button class="button">1</button>
-            <button class="button">2</button>
-            <button class="button">3</button>
-            <button class="button">4</button>
-            <button class="button">5</button>
-            <button class="button">6</button>
-            <button class="button">7</button>
-            <button class="button">8</button>
-            <button class="button">9</button>
+      <div class="title">My Calculator</div>
+      <div class="calculator-border">
+        <div class="calculator">
+          <div class="display">0</div>
+          <div class="buttons">
+            <div class="numbers">
+              <button class="button non-digits" id="clear">c</button>
+              <button class="button digits">0</button>
+              <button class="button non-digits" id="decimal">.</button>
+              <button class="button digits">1</button>
+              <button class="button digits">2</button>
+              <button class="button digits">3</button>
+              <button class="button digits">4</button>
+              <button class="button digits">5</button>
+              <button class="button digits">6</button>
+              <button class="button digits">7</button>
+              <button class="button digits">8</button>
+              <button class="button digits">9</button>
+            </div>
+            <div class="operators">
+              <button class="button non-digits" id="add">+</button>
+              <button class="button non-digits" id="subtract">-</button>
+              <button class="button non-digits" id="multiply">*</button>
+              <button class="button non-digits" id="divide">/</button>
+            </div>
           </div>
-          <div class="operators">
-            <button class="button" id="add">+</button>
-            <button class="button" id="subtract">-</button>
-            <button class="button" id="multiply">*</button>
-            <button class="button" id="divide">/</button>
+          <div class="misc-buttons">
+            <button class="button non-digits" id="equals">=</button>
+            <button class="button non-digits" id="back">&#x25c0;</button>
           </div>
-        </div>
-        <div class="misc-buttons">
-          <button class="button" id="equals">=</button>
-          <button class="button" id="back"><-</button>
         </div>
       </div>
     </div>

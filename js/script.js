@@ -53,7 +53,7 @@ function checkDecimals(number) {
 }
 
 function checkDisplay() {
-  if (display.textContent.split("").length > 23) {
+  if (display.textContent.split("").length > 21) {
     display.textContent = "BIG NUM";
     bigNumber = true;
   }
