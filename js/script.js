@@ -11,6 +11,9 @@ function multiply(a, b) {
 }
 
 function divide(a, b) {
+  if (b === "0") {
+    return "to infinity and beyond";
+  }
   return a / b;
 }
 
