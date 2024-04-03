@@ -20,6 +20,7 @@ let operator = "";
 let display = document.querySelector(".display");
 let result = false;
 let midOperation = false;
+let bigNumber = false;
 
 function operate(firstNumber, secondNumber, operator) {
   let result;
@@ -42,10 +43,17 @@ function operate(firstNumber, secondNumber, operator) {
 }
 
 function checkDecimals(number) {
-  if (String(number).split(".")[1].length > 5) {
+  if (String(number).includes(".") && String(number).split(".")[1].length > 5) {
     return Math.round((number + Number.EPSILON) * 10000) / 10000;
   }
   return number;
+}
+
+function checkDisplay() {
+  if (display.textContent.split("").length > 23) {
+    display.textContent = "BIG NUM";
+    bigNumber = true;
+  }
 }
 
 function clear() {
@@ -53,6 +61,7 @@ function clear() {
   firstNumber = "";
   secondNumber = "";
   operator = "";
+  bigNumber = false;
 }
 
 function init() {
@@ -74,6 +83,9 @@ function init() {
 }
 
 function updateDisplay() {
+  if (bigNumber) {
+    clear();
+  }
   if (result) {
     result = false;
     display.textContent = 0;
@@ -87,9 +99,14 @@ function updateDisplay() {
     display.textContent = "";
   }
   display.textContent += this.textContent;
+  checkDisplay();
 }
 
 function updateOperator() {
+  if (bigNumber) {
+    clear();
+    return;
+  }
   if (firstNumber && operator) {
     secondNumber = display.textContent;
     display.textContent = operate(firstNumber, secondNumber, operator);
@@ -102,6 +119,10 @@ function updateOperator() {
 }
 
 function printResult() {
+  if (bigNumber) {
+    clear();
+    return;
+  }
   if (firstNumber === "" || operator === "") {
     return;
   }
