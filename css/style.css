@@ -46,3 +46,11 @@
   width: 75px;
   height: 75px;
 }
+
+.misc-buttons {
+  display: flex;
+}
+
+#equals {
+  width: 225px;
+}

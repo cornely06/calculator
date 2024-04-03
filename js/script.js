@@ -59,6 +59,13 @@ function checkDisplay() {
   }
 }
 
+function addDecimal() {
+  if (display.textContent.includes(".")) {
+    return;
+  }
+  display.textContent += ".";
+}
+
 function clear() {
   display.textContent = "0";
   firstNumber = "";
