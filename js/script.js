@@ -66,6 +66,14 @@ function addDecimal() {
   display.textContent += ".";
 }
 
+function backspace() {
+  if (display.textContent.length) {
+    let array = display.textContent.split("");
+    array.pop();
+    display.textContent = array.join("");
+  }
+}
+
 function clear() {
   display.textContent = "0";
   firstNumber = "";
@@ -90,6 +98,12 @@ function init() {
 
   let equalsButton = document.querySelector("#equals");
   equalsButton.addEventListener("click", printResult);
+
+  let decimal = document.querySelector("#decimal");
+  decimal.addEventListener("click", addDecimal);
+
+  let back = document.querySelector("#back");
+  back.addEventListener("click", backspace);
 }
 
 function updateDisplay() {
