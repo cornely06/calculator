@@ -60,6 +60,11 @@ function checkDisplay() {
 }
 
 function addDecimal() {
+  if (result) {
+    result = false;
+    display.textContent = 0;
+    return;
+  }
   if (display.textContent.includes(".")) {
     return;
   }
