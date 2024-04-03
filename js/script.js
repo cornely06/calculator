@@ -37,7 +37,15 @@ function operate(firstNumber, secondNumber, operator) {
       result = divide(firstNumber, secondNumber);
       break;
   }
+  result = checkDecimals(result);
   return result;
+}
+
+function checkDecimals(number) {
+  if (String(number).split(".")[1].length > 5) {
+    return Math.round((number + Number.EPSILON) * 10000) / 10000;
+  }
+  return number;
 }
 
 function clear() {
