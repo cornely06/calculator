@@ -60,6 +60,10 @@ function checkDisplay() {
 }
 
 function addDecimal() {
+  if (bigNumber) {
+    clear();
+    return;
+  }
   if (result) {
     result = false;
     display.textContent = 0;
@@ -72,6 +76,10 @@ function addDecimal() {
 }
 
 function backspace() {
+  if (bigNumber) {
+    clear();
+    return;
+  }
   if (display.textContent.length) {
     let array = display.textContent.split("");
     array.pop();
