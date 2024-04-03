@@ -99,6 +99,8 @@ function printResult() {
   }
   secondNumber = display.textContent;
   display.textContent = operate(firstNumber, secondNumber, operator);
+  firstNumber = "";
+  operator = "";
   result = true;
 }
 
